@@ -113,23 +113,45 @@ const data = [
 
 */
 
-const articleCreate = (data => {
+const articleCreate = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
 
   const articleCont = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
   const articlePara = document.createElement('p');
+  const articlePara2 = document.createElement('p');
+  const articlePara3 = document.createElement('p');
   const expBtn = document.createElement('span');
 
-  articleCont.appendChild('articleTitle');
-  articleCont.appendChild('articleDate');
-  articleCont.appendChild('articlePara');
-  articleCont.appendChild('expBtn');
+  articleCont.appendChild(articleTitle);
+  articleCont.appendChild(articleDate);
+  articleCont.appendChild(expBtn);
+  articleCont.appendChild(articlePara);
+  articleCont.appendChild(articlePara2);
+  articleCont.appendChild(articlePara3);
 
-  articleCont.classList.add('article');
+  articleCont.classList.add('articles');
   articleDate.classList.add('date');
   expBtn.classList.add('expandButton');
 
-  return article;
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  expBtn.textContent = 'Expand';
+  articlePara.textContent = firstParagraph;
+  articlePara2.textContent = secondParagraph;
+  articlePara3.textContent = thirdParagraph;
 
-})
+  expBtn.addEventListener('click', () => {
+    articleCont.classList.toggle('article-open')
+  })
+
+  return articleCont;
+
+  
+
+}
+
+const article = document.querySelector('.articles');
+data.forEach(data => {
+  article.appendChild(articleCreate(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph,));
+});
