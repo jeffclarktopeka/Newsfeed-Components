@@ -130,13 +130,14 @@ const articleCreate = (title, date, firstParagraph, secondParagraph, thirdParagr
   articleCont.appendChild(articlePara2);
   articleCont.appendChild(articlePara3);
 
-  articleCont.classList.add('articles');
+  articleCont.classList.add('article');
   articleDate.classList.add('date');
   expBtn.classList.add('expandButton');
 
   articleTitle.textContent = title;
   articleDate.textContent = date;
   expBtn.textContent = 'Expand';
+
   articlePara.textContent = firstParagraph;
   articlePara2.textContent = secondParagraph;
   articlePara3.textContent = thirdParagraph;
@@ -146,8 +147,6 @@ const articleCreate = (title, date, firstParagraph, secondParagraph, thirdParagr
   })
 
   return articleCont;
-
-  
 
 }
 
